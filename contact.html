@@ -8,14 +8,14 @@
         <input type="email" class="form-control" id="emailInput">
       </div>
       <div class="mb-3">
-        <label for="nameInput" class="form-label">Enter your first name</label>
-        <textarea class="form-control" id="nameInput" rows="1"></textarea>
-        <label for="lastNameInput" class="form-label">Enter your last name</label>
-        <textarea class="form-control" id="lastNameInput" rows="1"></textarea>
-        <label for="phoneInput" class="form-label">Enter your phone number
-        <textarea class="form-control" id="phoneInput" rows="1"></textarea>
-        <label for="questionInput" class="form-label">What questions/comments/concerns do you have, if any?
-        <textarea class="form-control" id="questionInput" rows="9"></textarea>
+        <label for="firstName" class="form-label">Enter your first name</label>
+        <textarea class="form-control" id="firstName" rows="1"></textarea>
+        <label for="lastName" class="form-label">Enter your last name</label>
+        <textarea class="form-control" id="lastName" rows="1"></textarea>
+        <label for="phoneNum" class="form-label">Enter your phone number
+        <textarea class="form-control" id="phoneNum" rows="1"></textarea>
+        <label for="questions" class="form-label">What questions/comments/concerns do you have, if any?
+        <textarea class="form-control" id="questions" rows="9"></textarea>
         
         
       </div>
@@ -25,28 +25,26 @@
       async function sendContact(ev) {
         ev.preventDefault();
 
-        const senderEmail = document
+        const emailInput = document
           .getElementById('emailInput').value;
-        const senderMessage = document
-          .getElementById('messageInput').value;
-        const senderName = document
-          .getElementById('nameInput').value;
-        const senderLastName = document
-          .getElementById('lastNameInput').value;
-        const senderPhoneNumber = document
-          .getElementById('phoneInput').value;
-        const senderQuestions = document
-          .getElementById('questionInput').value;
+        const firstName = document
+          .getElementById('firstName').value;
+        const lastName = document
+          .getElementById('lastName').value;
+        const phoneNum = document
+          .getElementById('phoneNum').value;
+        const questions = document
+          .getElementById('questions').value;
 
         const webhookBody = {
           embeds: [{
             title: 'Contact Form Submitted',
             fields: [
-              { name: 'Sender Email', value: senderEmail },
-              { name: 'Sender First Name', value: senderName }
-              { name: 'Sender Last Name', value: senderLastName }
-              { name: 'Sender Phone Number', value: senderPhoneNumber }
-              { name: 'Sender Questions/Comments/Concerns', value: senderQuestions }
+              { name: 'Email', value: emailInput },
+              { name: 'First Name', value: firstName }
+              { name: 'Last Name', value: lastName },
+              { name: 'Phone Number',  value: phoneNum } 
+              { name: 'Questions/Comments/Concerns',  value: questions }
             ]
           }],
         };
