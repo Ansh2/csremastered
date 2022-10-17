@@ -8,14 +8,14 @@
         <input type="email" class="form-control" id="emailInput">
       </div>
       <div class="mb-3">
-        <label for="messageInput" class="form-label">Enter your first name</label>
-        <textarea class="form-control" id="messageInput" rows="1"></textarea>
-        <label for="messageInput" class="form-label">Enter your last name</label>
-        <textarea class="form-control" id="messageInput" rows="1"></textarea>
-        <label for="messageInput" class="form-label">Enter your phone number
-        <textarea class="form-control" id="messageInput" rows="1"></textarea>
-        <label for="messageInput" class="form-label">What questions/comments/concerns do you have, if any?
-        <textarea class="form-control" id="messageInput" rows="9"></textarea>
+        <label for="nameInput" class="form-label">Enter your first name</label>
+        <textarea class="form-control" id="nameInput" rows="1"></textarea>
+        <label for="lastNameInput" class="form-label">Enter your last name</label>
+        <textarea class="form-control" id="lastNameInput" rows="1"></textarea>
+        <label for="phoneInput" class="form-label">Enter your phone number
+        <textarea class="form-control" id="phoneInput" rows="1"></textarea>
+        <label for="questionInput" class="form-label">What questions/comments/concerns do you have, if any?
+        <textarea class="form-control" id="questionInput" rows="9"></textarea>
         
         
       </div>
@@ -29,13 +29,24 @@
           .getElementById('emailInput').value;
         const senderMessage = document
           .getElementById('messageInput').value;
+        const senderName = document
+          .getElementById('nameInput').value;
+        const senderLastName = document
+          .getElementById('lastNameInput').value;
+        const senderPhoneNumber = document
+          .getElementById('phoneInput').value;
+        const senderQuestions = document
+          .getElementById('questionInput').value;
 
         const webhookBody = {
           embeds: [{
             title: 'Contact Form Submitted',
             fields: [
-              { name: 'Sender', value: senderEmail },
-              { name: 'Message', value: senderMessage }
+              { name: 'Sender Email', value: senderEmail },
+              { name: 'Sender First Name', value: senderName }
+              { name: 'Sender Last Name', value: senderLastName }
+              { name: 'Sender Phone Number', value: senderPhoneNumber }
+              { name: 'Sender Questions/Comments/Concerns', value: senderQuestions }
             ]
           }],
         };
